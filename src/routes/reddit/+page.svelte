@@ -37,7 +37,7 @@
 	async function getRes() {
 		loading = true;
 		const res = await fetch(
-			`https://www.reddit.com/r/${subreddit.replace('r/', '')}/${option}.json?after=${after}`
+			`/api/reddit?subreddit=${subreddit}&after=${after}&option=${option}`
 		);
 		if (res.ok) {
 			const data = await res.json();
