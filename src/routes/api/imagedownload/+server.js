@@ -8,7 +8,7 @@ export async function GET({ url, fetch }) {
 
     const res = await fetch(src);
     if (res.ok) {
-        return new Response(await res.blob());
+        return new Response(await res.blob(), { headers: { 'Access-Control-Allow-Origin': "*" } });
     }
     throw error(res.status);
 }
