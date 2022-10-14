@@ -7,9 +7,7 @@
 	let optionsVisible = false;
 
 	async function download() {
-		const image = await fetch(src, {
-			referrerPolicy: 'same-origin'
-		});
+		const image = await fetch(`/api/imagedownload?src=${src}`);
 		const imageBlog = await image.blob();
 		const imageURL = URL.createObjectURL(imageBlog);
 
@@ -41,7 +39,7 @@
 	on:mouseleave={() => {
 		optionsVisible = false;
 	}}
-	class="relative max-w-[400px] h-min my-3 p-1 bg-surface1 shadow-md"
+	class="relative max-w-[95%] md:max-w-[350px] h-min my-3 p-1 bg-surface1 shadow-md"
 >
 	<div class={optionsVisible ? '' : 'hidden'}>
 		<button
@@ -59,6 +57,10 @@
 			target="_blank"
 			class="absolute left-[5.5rem] top-3 px-2 py-1 bg-surface0 bg-opacity-70 rounded-lg hover:bg-opacity-100"
 			><i class="fa-solid fa-arrow-up-right-from-square" /></a
+		>
+		<button
+			class="hidden md:block absolute left-[7.6rem] top-3 px-2 py-1 bg-surface0 bg-opacity-70 rounded-lg hover:bg-opacity-100"
+			><i class="fa-solid fa-magnifying-glass-plus" /></button
 		>
 	</div>
 	<img {src} alt="" loading="lazy" />

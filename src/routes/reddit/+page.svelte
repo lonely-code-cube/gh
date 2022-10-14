@@ -1,6 +1,6 @@
 <script>
 	// @ts-nocheck
-	import Image from '$lib/Image.svelte';
+	import Image from '$lib/components/Image.svelte';
 
 	let subreddit = 'r/';
 	let option = 'hot';
@@ -81,7 +81,7 @@
 		<option value="rising">Rising</option>
 	</select>
 </div>
-<div class="m-10">
+<div class="m-2 md:m-10">
 	{#if images.length}
 		<div class="flex flex-wrap justify-around">
 			{#each images as image}
