@@ -7,7 +7,9 @@
 	let optionsVisible = false;
 
 	async function download() {
-		const image = await fetch(src);
+		const image = await fetch(src, {
+			referrerPolicy: 'same-origin'
+		});
 		const imageBlog = await image.blob();
 		const imageURL = URL.createObjectURL(imageBlog);
 
